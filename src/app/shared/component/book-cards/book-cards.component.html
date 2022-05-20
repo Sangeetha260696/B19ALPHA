@@ -1,0 +1,27 @@
+<mat-card>
+  <mat-card-content class="image-card">
+    <a
+      [routerLink]="['/book-details/', books.bookId]"
+      matTooltip="{{ books.title }}"
+      matTooltipClass="example-tooltip"
+      aria-label="books title"
+      ><img
+        class="preview-image"
+        mat-card-image
+        src="../../../../assets/img/{{books.coverFileName}}"
+        alt="books cover image"
+    /></a>
+    <div class="favourite mat-elevation-z4">
+      <app-addtowishlist></app-addtowishlist>
+    </div>
+  </mat-card-content>
+  <mat-card-content>
+    <div class="card-title">
+      <a [routerLink]="['/book-details', books.bookId]">
+        <strong>{{ books.title }}</strong>
+      </a>
+    </div>
+    <p>{{ books.price | currency: "INR" }}</p>
+    <app-addtocart></app-addtocart>
+  </mat-card-content>
+</mat-card>

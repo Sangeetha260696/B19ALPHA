@@ -1,0 +1,51 @@
+<div class="docs-example-viewer-wrapper">
+
+  
+      <h2 class="bgcolor">Book Details</h2>
+ 
+ 
+      <div
+        class="docs-example-viewer-body row"
+        *ngIf="BookDetails$ | async as book">
+        <div class="col-md-3 col-sm-12">
+          <mat-card-content class="image-card">
+            <img
+              class="preview-image"
+              mat-card-image
+              src="../../../assets/img/{{ book.coverFileName }}"
+              alt="No image available"
+            />
+          </mat-card-content>
+        </div>
+        <div class="col-md-5 col-sm-12">
+          <table class="table">
+            <tr>
+              <td><strong>Title</strong></td>
+              <td>{{ book.title }}</td>
+            </tr>
+            <tr>
+              <td><strong>Author</strong></td>
+              <td>{{ book.author }}</td>
+            </tr>
+            <tr>
+              <td><strong>Category</strong></td>
+              <td>{{ book.category }}</td>
+            </tr>
+            <tr>
+              <td><strong>Price</strong></td>
+              <td>{{ book.price | currency: "INR" }}</td>
+            </tr>
+          </table>
+          <div fxLayoutGap="10px grid">
+            <app-addtocart ></app-addtocart>
+            <app-addtowishlist >
+            </app-addtowishlist>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+    <app-show-similar-items ></app-show-similar-items>
